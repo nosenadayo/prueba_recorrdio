@@ -18,6 +18,8 @@ ActiveRecord::Schema.define(version: 2024_07_09_200756) do
   create_table "assignments", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "time_block_id", null: false
+    t.date "date"
+    t.integer "status", default: 0
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["time_block_id"], name: "index_assignments_on_time_block_id"
@@ -42,19 +44,20 @@ ActiveRecord::Schema.define(version: 2024_07_09_200756) do
 
   create_table "time_blocks", force: :cascade do |t|
     t.time "hour"
-    t.bigint "daily_contracts_id", null: false
+    t.bigint "daily_contract_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["daily_contracts_id"], name: "index_time_blocks_on_daily_contracts_id"
+    t.index ["daily_contract_id"], name: "index_time_blocks_on_daily_contract_id"
   end
 
   create_table "users", force: :cascade do |t|
-    t.integer "color"
+    t.string "color"
+    t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   add_foreign_key "assignments", "time_blocks"
   add_foreign_key "assignments", "users"
-  add_foreign_key "time_blocks", "daily_contracts", column: "daily_contracts_id"
+  add_foreign_key "time_blocks", "daily_contracts"
 end
