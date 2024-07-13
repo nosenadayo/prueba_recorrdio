@@ -18,6 +18,10 @@ module Assignments
 
         apply_cancelled
       end
+    rescue => e
+      context.error = e
+      context.status = :unprocessable_entity
+      context.fail!
     end
 
     private
@@ -37,6 +41,7 @@ module Assignments
     def exist_cancelled?
       context.user.assignments
              .where(time_block_id: context.time_block.id)
+             .where(date: date)
              .cancelled
              .any?
     end

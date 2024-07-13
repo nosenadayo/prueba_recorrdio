@@ -24,6 +24,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem "interactor", "~> 3.0"
 gem 'draper'
 gem 'active_model_serializers', '~> 0.10.0'
-gem "or-tools"
 
 

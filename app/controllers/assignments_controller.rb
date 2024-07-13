@@ -18,6 +18,7 @@ class AssignmentsController < ApplicationController
   def create
     service = Assignments::PlaceAssignOrganize.call(params: params)
 
-    render json:  service.assignment , status: :created
+    render json: service.success? ? service.assignment : { error: service.error },
+           status: service.status
   end
 end

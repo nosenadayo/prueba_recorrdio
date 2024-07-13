@@ -127,8 +127,6 @@ GEM
       racc (~> 1.4)
     nokogiri (1.15.6-arm64-darwin)
       racc (~> 1.4)
-    or-tools (0.10.1)
-      rice (>= 4.0.2)
     pg (1.5.6)
     pry (0.13.1)
       coderay (~> 1.1)
@@ -178,7 +176,6 @@ GEM
       ffi (~> 1.0)
     request_store (1.7.0)
       rack (>= 1.4)
-    rice (4.3.0)
     ruby2_keywords (0.0.5)
     spring (4.2.1)
     sprockets (4.2.1)
@@ -208,7 +205,6 @@ DEPENDENCIES
   draper
   interactor (~> 3.0)
   listen (~> 3.3)
-  or-tools
   pg (~> 1.4)
   pry-byebug
   puma (~> 5.0)
